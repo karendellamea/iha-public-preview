@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111d32"><meta name="robots" content="noindex,nofollow">
+<title>Campus | Institute for Human Advancement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.86.0/dist/umd/supabase.min.js"></script>
+<style>
+:root{--navy:#111d32;--navy2:#1a2941;--paper:#f4f1e9;--white:#fbfaf7;--gold:#b99a62;--ink:#202a39;--muted:#697181;--line:#dcd7cb}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px "DM Sans",sans-serif}a{color:inherit}.shell{max-width:1040px;margin:auto;padding:28px 22px 70px}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:0 0 22px}.brand{display:flex;gap:12px;align-items:center;text-decoration:none}.seal{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:600 17px "Cormorant Garamond"}.brand small{display:block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.5}.top a.back{font-size:12px;color:var(--muted)}.hero{padding:48px 0 30px}.eyebrow{color:#987745;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}h1{font-size:clamp(42px,7vw,66px);line-height:1;margin:13px 0}h2{font-size:34px;margin:0 0 10px;color:var(--navy)}.sub{max-width:650px;color:var(--muted);line-height:1.7}.panel{background:var(--white);border:1px solid var(--line);padding:28px;margin:18px 0}.tabs{display:flex;gap:8px;margin-bottom:22px}.tab,.btn{border:1px solid var(--navy);background:transparent;color:var(--navy);padding:11px 16px;font:600 11px "DM Sans";letter-spacing:.06em;cursor:pointer}.tab.active,.btn.primary{background:var(--navy);color:white}.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}.btn:disabled{opacity:.5;cursor:not-allowed}.field{display:grid;gap:7px;margin:13px 0}.field label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}input,select{width:100%;padding:13px;border:1px solid var(--line);background:white;font:14px "DM Sans";color:var(--ink)}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.note{font-size:12px;color:var(--muted);line-height:1.65}.status{padding:13px 15px;background:#eeebe4;border-left:3px solid var(--gold);margin:15px 0;line-height:1.6}.error{border-left-color:#a43c3c;color:#7b2727}.success{border-left-color:#477b58}.hidden{display:none!important}.course{border:1px solid var(--line);padding:20px;margin:12px 0}.course h3{font-size:27px;margin:0 0 7px}.file{display:flex;justify-content:space-between;gap:15px;padding:13px 0;border-bottom:1px solid var(--line)}.file a{color:#8b6d3f}.admin-row{padding:15px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:12px}.small{font-size:11px;color:var(--muted)}footer{padding-top:30px;color:var(--muted);font-size:10px;letter-spacing:.08em}@media(max-width:620px){.row{grid-template-columns:1fr}.panel{padding:20px}.admin-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main class="shell">
+<header class="top"><a class="brand" href="./"><span class="seal">IHA</span><span><small>Institute for Human</small><small>Advancement</small></span></a><a class="back" href="./">Volver al instituto ↗</a></header>
+<section class="hero"><div class="eyebrow">Área académica privada</div><h1>Campus IHA</h1><p class="sub">Acceso de estudiantes, solicitudes de inscripción y materiales académicos. El acceso al contenido se habilita únicamente después de la aprobación administrativa.</p></section>
+<div id="message" class="status hidden" role="status" aria-live="polite"></div>
+<section id="auth" class="panel">
+<h2>Ingresar al campus</h2><p class="note">Si todavía no tenés una cuenta, podés crearla con tu correo electrónico.</p>
+<div class="tabs"><button class="tab active" id="loginTab" type="button">Ingresar</button><button class="tab" id="signupTab" type="button">Crear cuenta</button></div>
+<form id="authForm">
+<div class="field hidden" id="nameField"><label for="fullName">Nombre completo</label><input id="fullName" autocomplete="name"></div>
+<div class="field"><label for="email">Correo electrónico</label><input id="email" type="email" autocomplete="email" required></div>
+<div class="field"><label for="password">Contraseña</label><input id="password" type="password" minlength="8" autocomplete="current-password" required></div>
+<button class="btn primary" id="authSubmit">Ingresar</button>
+</form></section>
+<section id="student" class="hidden">
+<div class="panel"><div class="eyebrow">Mi cuenta</div><h2 id="welcome">Bienvenida/o</h2><p class="note" id="accountEmail"></p><button class="btn" id="logout">Cerrar sesión</button></div>
+<div class="panel" id="enrollPanel"><div class="eyebrow">Programa inaugural</div><h2>Neurociencias y Conducta Humana</h2><p class="sub">Inscripción al programa académico inaugural de IHA.</p>
+<div class="course"><div class="row"><div><div class="small">Arancel en pesos argentinos</div><strong>ARS 59.000</strong></div><div><div class="small">Arancel internacional</div><strong>USD 59</strong></div></div></div>
+<form id="enrollForm"><div class="row"><div class="field"><label for="currency">Moneda de pago</label><select id="currency"><option value="ARS">ARS — $59.000</option><option value="USD">USD — 59</option></select></div><div class="field"><label for="reference">Referencia / comprobante</label><input id="reference" required placeholder="Identificador o referencia de pago"></div></div>
+<p class="note">La inscripción queda pendiente hasta la verificación manual del pago. No ingreses datos de tarjeta ni contraseñas bancarias en este formulario. Los datos de transferencia o el enlace de cobro deben ser confirmados por IHA antes de pagar.</p>
+<button class="btn gold" type="submit">Enviar solicitud de inscripción</button></form></div>
+<div class="panel"><div class="eyebrow">Estado académico</div><h2>Mis inscripciones</h2><div id="enrollments" class="note">Cargando…</div></div>
+<div id="libraryPanel" class="panel hidden"><div class="eyebrow">Biblioteca privada</div><h2>Materiales del curso</h2><div id="library" class="note">Cargando materiales autorizados…</div></div>
+<div id="adminPanel" class="panel hidden"><div class="eyebrow">Administración</div><h2>Solicitudes pendientes</h2><div id="adminList" class="note">Cargando…</div></div>
+</section>
+<footer>Institute for Human Advancement · Developing Intelligence. Advancing Humanity.</footer>
+</main>
+<script>
+(function(){
+const SUPABASE_URL="https://ymdmqhjyexicnnlkzmpw.supabase.co";
+const SUPABASE_KEY="sb_publishable_0P_AG0zNSRAI2pQpiPuYxw_MGnsQYuq";
+const BUCKET="iha-course-materials", COURSE="neurociencias-conducta-humana";
+const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const $=id=>document.getElementById(id);
+let mode="login", currentUser=null;
+function message(text,type=""){const el=$("message");el.textContent=text;el.className="status "+type;}
+function fail(err){message(err.message||"No se pudo completar la operación. Intentá nuevamente.","error");}
+function setMode(next){mode=next;$("loginTab").classList.toggle("active",mode==="login");$("signupTab").classList.toggle("active",mode==="signup");$("nameField").classList.toggle("hidden",mode!=="signup");$("authSubmit").textContent=mode==="login"?"Ingresar":"Crear cuenta";}
+$("loginTab").onclick=()=>setMode("login");$("signupTab").onclick=()=>setMode("signup");
+$("authForm").onsubmit=async e=>{e.preventDefault();const email=$("email").value.trim(),password=$("password").value;try{
+if(mode==="signup"){const full_name=$("fullName").value.trim();if(!full_name)throw new Error("Ingresá tu nombre completo.");const {data,error}=await client.auth.signUp({email,password,options:{data:{full_name}}});if(error)throw error;if(data.user){const {error:profileError}=await client.from("iha_profiles").upsert({id:data.user.id,full_name,role:"student"});if(profileError)throw profileError;}if(!data.session){message("Cuenta creada. Revisá tu correo para confirmar la dirección y luego ingresá.","success");return;}}
+else{const {error}=await client.auth.signInWithPassword({email,password});if(error)throw error;}
+await refresh();
+}catch(err){fail(err);}};
+$("logout").onclick=async()=>{await client.auth.signOut();location.reload();};
+$("enrollForm").onsubmit=async e=>{e.preventDefault();if(!currentUser)return;const currency=$("currency").value;try{const {error}=await client.from("iha_enrollments").insert({user_id:currentUser.id,course_slug:COURSE,full_name:$("welcome").dataset.name||"",email:currentUser.email,payment_currency:currency,amount:currency==="ARS"?59000:59,payment_reference:$("reference").value.trim(),payment_status:"pending"});if(error)throw error;$("reference").value="";message("Solicitud recibida. Tu inscripción figura pendiente de verificación manual.","success");await loadDashboard();}catch(err){fail(err);}};
+async function loadDashboard(){const {data:profile,error:profileErr}=await client.from("iha_profiles").select("full_name,role").eq("id",currentUser.id).maybeSingle();if(profileErr)throw profileErr;const name=profile?.full_name||currentUser.user_metadata?.full_name||currentUser.email;$("welcome").textContent="Hola, "+name;$("welcome").dataset.name=name;$("accountEmail").textContent=currentUser.email;$("auth").classList.add("hidden");$("student").classList.remove("hidden");
+const {data:rows,error}=await client.from("iha_enrollments").select("id,course_slug,payment_currency,amount,payment_status,submitted_at").eq("user_id",currentUser.id).order("submitted_at",{ascending:false});if(error)throw error;
+$("enrollments").innerHTML=rows?.length?rows.map(r=>'<div class="course"><strong>'+escapeHtml(r.course_slug)+'</strong><p class="note">Pago: '+escapeHtml(r.payment_currency)+' '+escapeHtml(String(r.amount))+' · Estado: <b>'+escapeHtml(r.payment_status)+'</b></p></div>').join(""):"Todavía no tenés inscripciones.";
+const approved=rows?.some(r=>r.course_slug===COURSE&&r.payment_status==="approved");$("libraryPanel").classList.toggle("hidden",!approved);if(approved)await loadLibrary();
+const isAdmin=profile?.role==="admin";$("adminPanel").classList.toggle("hidden",!isAdmin);if(isAdmin)await loadAdmin();
+}
+async function loadLibrary(){const {data,error}=await client.storage.from(BUCKET).list(COURSE,{limit:100,sortBy:{column:"name",order:"asc"}});if(error){$("library").textContent="La biblioteca todavía no está disponible.";return;}if(!data?.length){$("library").textContent="Tu acceso está aprobado. Los materiales del curso todavía no fueron publicados.";return;}const links=await Promise.all(data.filter(f=>f.name&&!f.name.startsWith(".")).map(async f=>{const path=COURSE+"/"+f.name;const {data:signed,error:e}=await client.storage.from(BUCKET).createSignedUrl(path,300);return e?null:{name:f.name,url:signed.signedUrl};}));$("library").innerHTML=links.filter(Boolean).map(f=>'<div class="file"><span>'+escapeHtml(f.name)+'</span><a target="_blank" rel="noopener" href="'+f.url+'">Abrir material ↗</a></div>').join("")||"No hay archivos publicados.";}
+async function loadAdmin(){const {data,error}=await client.from("iha_enrollments").select("id,full_name,email,course_slug,payment_currency,amount,payment_reference,submitted_at,payment_status").eq("payment_status","pending").order("submitted_at");if(error){$("adminList").textContent="No se pudieron cargar las solicitudes.";return;}if(!data?.length){$("adminList").textContent="No hay solicitudes pendientes.";return;}$("adminList").innerHTML=data.map(r=>'<div class="admin-row"><div><strong>'+escapeHtml(r.full_name)+'</strong><div class="small">'+escapeHtml(r.email)+' · '+escapeHtml(r.payment_currency)+' '+escapeHtml(String(r.amount))+'</div><div class="small">Referencia: '+escapeHtml(r.payment_reference||"—")+'</div></div><div><button class="btn primary" data-id="'+r.id+'" data-status="approved">Aprobar</button> <button class="btn" data-id="'+r.id+'" data-status="rejected">Rechazar</button></div></div>').join("");$("adminList").querySelectorAll("button").forEach(btn=>btn.onclick=async()=>{const {error}=await client.from("iha_enrollments").update({payment_status:btn.dataset.status,reviewed_at:new Date().toISOString(),reviewed_by:currentUser.id}).eq("id",btn.dataset.id);if(error){fail(error);return;}message("Solicitud actualizada.","success");await loadAdmin();});}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+async function refresh(){const {data:{session}}=await client.auth.getSession();currentUser=session?.user||null;if(currentUser){try{await loadDashboard();}catch(err){fail(err);}}else{$("auth").classList.remove("hidden");$("student").classList.add("hidden");}}
+client.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;if(session)setTimeout(()=>refresh(),0);});
+refresh();
+})();
+</script></body></html>
