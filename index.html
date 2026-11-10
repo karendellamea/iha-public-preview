@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111d32">
+  <meta name="description" content="Institute for Human Advancement — Developing Intelligence. Advancing Humanity.">
+  <title>Institute for Human Advancement | IHA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#111d32;--navy2:#1a2941;--ink:#202a39;--muted:#697181;--paper:#f4f1e9;--white:#fbfaf7;--gold:#b99a62;--line:rgba(31,43,61,.15)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    header{height:88px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.12);position:absolute;z-index:2;top:0;left:0;right:0;color:#f7f3ea}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:13px}
+    .seal{width:43px;height:43px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#d3bb8e;font:600 19px "Cormorant Garamond",serif;position:relative}
+    .seal:after{content:"";position:absolute;inset:4px;border:1px solid rgba(185,154,98,.45);border-radius:50%}
+    .brand-name{font-size:10px;letter-spacing:.19em;line-height:1.55;text-transform:uppercase}.brand-name b{display:block;font-weight:600}
+    nav{display:flex;gap:30px;font-size:12px;color:#d7dbe1}nav a:hover{color:#e2c58d}
+    .hero{min-height:730px;background:radial-gradient(ellipse at 78% 45%,rgba(63,82,109,.48),transparent 42%),linear-gradient(115deg,#101b2e 0%,#17263e 58%,#202e45 100%);color:#f7f3ea;display:flex;align-items:center;padding:150px 0 100px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:570px;height:570px;border:1px solid rgba(185,154,98,.18);border-radius:50%;right:-100px;top:115px;box-shadow:0 0 0 28px rgba(185,154,98,.025),0 0 0 58px rgba(185,154,98,.02)}
+    .hero:after{content:"IHA";position:absolute;right:8%;bottom:-90px;color:rgba(255,255,255,.025);font:600 360px/.8 "Cormorant Garamond",serif;pointer-events:none}
+    .hero-copy{position:relative;z-index:1;max-width:760px}.eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#d0b27b;font-weight:600}
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}h1{font-size:clamp(58px,8vw,98px);line-height:.94;letter-spacing:-.035em;margin:27px 0 25px;max-width:790px}
+    .hero p{max-width:570px;color:#c6ccd5;font:18px/1.75 "Cormorant Garamond",serif}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:38px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 21px;min-height:48px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;transition:.2s}
+    .btn-gold{background:var(--gold);color:#172238;border:1px solid var(--gold)}.btn-gold:hover{background:#d0b47c}.btn-outline{border:1px solid rgba(244,241,233,.38);color:#f4f1e9}.btn-outline:hover{border-color:var(--gold);color:#e3c891}
+    .hero-foot{position:absolute;bottom:32px;left:0;right:0;z-index:1;display:flex;justify-content:space-between;color:#9ca6b5;font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+    section{padding:104px 0}.intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;align-items:start}.section-kicker{font-size:10px;letter-spacing:.2em;color:#9a7946;text-transform:uppercase;font-weight:700}
+    h2{font-size:clamp(42px,5vw,62px);line-height:1.02;margin:18px 0 0;color:#1a2941}.intro-copy{font:22px/1.65 "Cormorant Garamond",serif;color:#48515f}.intro-copy p{margin:0 0 18px}.intro-copy strong{color:#243650;font-weight:600}
+    .principles{background:#e9e5dc}.section-heading{max-width:650px;margin-bottom:48px}.section-heading h2{margin-bottom:15px}.section-heading p{color:var(--muted);font-size:14px;line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.tile{background:#eeebe4;padding:32px;min-height:220px}.tile-no{color:#a1814c;font:italic 18px "Cormorant Garamond",serif}.tile h3{font-size:30px;color:#1b2b43;margin:24px 0 10px}.tile p{font-size:13px;line-height:1.8;color:#68707c;margin:0}
+    .program{background:var(--navy);color:#f5f0e7}.program h2{color:#f5f0e7}.program .section-kicker{color:#d0b27b}.program .section-heading p{color:#b8c0ca}
+    .course-card{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid rgba(185,154,98,.38);background:rgba(255,255,255,.035)}
+    .course-main{padding:42px}.course-tag{color:#d0b27b;font-size:9px;letter-spacing:.2em;text-transform:uppercase}.course-main h3{font-size:42px;line-height:1.04;margin:18px 0}.course-main p{color:#c0c7d1;font:18px/1.7 "Cormorant Garamond",serif;max-width:560px}
+    .course-aside{border-left:1px solid rgba(185,154,98,.3);padding:42px;display:flex;flex-direction:column;justify-content:center;gap:22px}.stat{border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:16px}.stat b{display:block;color:#d2b77f;font:36px "Cormorant Garamond",serif}.stat span{color:#aeb7c3;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .access{background:#f8f6f0;text-align:center}.access h2{max-width:700px;margin:18px auto}.access p{max-width:600px;margin:22px auto 30px;color:#667080;font:19px/1.7 "Cormorant Garamond",serif}
+    footer{background:#0d1728;color:#aeb6c2;padding:35px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-brand{color:#e8e0d2;font-size:10px;letter-spacing:.18em;text-transform:uppercase}.footer-note{font-size:10px;letter-spacing:.08em}
+    @media(max-width:760px){header{height:74px}.wrap{width:min(100% - 34px,1160px)}nav{gap:13px;font-size:10px}nav a:nth-child(2){display:none}.hero{min-height:680px;padding-top:130px}.hero:before{right:-350px}.hero-foot{font-size:8px}.intro{grid-template-columns:1fr;gap:24px}section{padding:76px 0}.grid{grid-template-columns:1fr}.tile{min-height:unset}.course-card{grid-template-columns:1fr}.course-aside{border-left:0;border-top:1px solid rgba(185,154,98,.3);display:grid;grid-template-columns:1fr 1fr}.course-main,.course-aside{padding:28px}.course-main h3{font-size:36px}.footer-inner{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="IHA inicio"><span class="seal">IHA</span><span class="brand-name"><b>Institute for Human</b> Advancement</span></a>
+    <nav aria-label="Navegación principal"><a href="#instituto">El instituto</a><a href="#enfoque">Enfoque</a><a href="#programa">Programa</a></nav>
+  </div></header>
+  <main>
+    <section class="hero" id="inicio"><div class="wrap hero-copy">
+      <div class="eyebrow">Institute for Human Advancement</div>
+      <h1>Developing Intelligence.<br>Advancing Humanity.</h1>
+      <p>Una institución dedicada al desarrollo de la inteligencia, la formación del pensamiento riguroso y la exploración del potencial humano.</p>
+      <div class="actions"><a class="btn btn-gold" href="#instituto">Descubrir IHA</a><a class="btn btn-outline" href="#programa">Explorar el programa</a></div>
+    </div><div class="wrap hero-foot"><span>Curiosidad · Disciplina · Conocimiento</span><span>Una visión de largo plazo</span></div></section>
+    <section id="instituto"><div class="wrap intro">
+      <div><div class="section-kicker">Nuestra visión</div><h2>El desarrollo de la inteligencia como horizonte.</h2></div>
+      <div class="intro-copy"><p>El Institute for Human Advancement nace de una convicción: <strong>el potencial intelectual puede cultivarse</strong> mediante estudio profundo, curiosidad sostenida y experiencias de aprendizaje cuidadosamente diseñadas.</p><p>Buscamos crear un entorno donde las ideas se examinen con rigor, las preguntas impulsen nuevas perspectivas y el conocimiento se convierta en capacidad para comprender y transformar el mundo.</p></div>
+    </div></section>
+    <section class="principles" id="enfoque"><div class="wrap">
+      <div class="section-heading"><div class="section-kicker">Nuestro enfoque</div><h2>Aprender para pensar mejor.</h2><p>Una experiencia académica construida alrededor de la profundidad, la autonomía intelectual y la conexión entre disciplinas.</p></div>
+      <div class="grid">
+        <article class="tile"><span class="tile-no">01 /</span><h3>Profundidad</h3><p>Contenidos organizados para ir más allá de la superficie y construir comprensión conceptual.</p></article>
+        <article class="tile"><span class="tile-no">02 /</span><h3>Rigor</h3><p>Lectura crítica, argumentación clara y respeto por la evidencia y los matices.</p></article>
+        <article class="tile"><span class="tile-no">03 /</span><h3>Potencial</h3><p>Herramientas para desarrollar autonomía, creatividad y pensamiento interdisciplinario.</p></article>
+      </div>
+    </div></section>
+    <section class="program" id="programa"><div class="wrap">
+      <div class="section-heading"><div class="section-kicker">Programa inaugural</div><h2>Una primera exploración del comportamiento humano.</h2><p>El catálogo público presenta la propuesta académica. Los materiales, las evaluaciones y las clases completas estarán disponibles únicamente para estudiantes con acceso autorizado.</p></div>
+      <article class="course-card"><div class="course-main"><div class="course-tag">Curso inaugural · Neurociencias</div><h3>Neurociencias y Conducta Humana</h3><p>Una aproximación estructurada a las bases neurobiológicas de la conducta, la cognición y la experiencia humana.</p></div><div class="course-aside"><div class="stat"><b>01</b><span>Programa inaugural</span></div><div class="stat"><b>IHA</b><span>Formación académica</span></div></div></article>
+    </div></section>
+    <section class="access"><div class="wrap"><div class="section-kicker">Acceso académico</div><h2>El conocimiento merece un espacio cuidado.</h2><p>La plataforma de estudiantes y el sistema de licencias se encuentran en preparación. El contenido académico completo no forma parte de esta vista pública.</p><span class="btn btn-gold" aria-label="Plataforma académica en preparación">Plataforma en preparación</span></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><div class="footer-brand">Institute for Human Advancement · IHA</div><div class="footer-note">Developing Intelligence. Advancing Humanity.</div></div></footer>
+</body>
+</html>
